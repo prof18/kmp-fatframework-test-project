@@ -15,16 +15,11 @@ repositories {
     mavenCentral()
 }
 
-
-
 kotlin {
     android()
     ios {
         binaries.framework("LibraryName")
     }
-//    macosX64("macOS") {
-//        binaries.framework("LibraryName")
-//    }
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
@@ -44,20 +39,17 @@ kotlin {
                 implementation("junit:junit:4.13")
             }
         }
-//        val iosMain by getting
-//        val iosTest by getting
-
-//        val macOSMain by getting
-//        val macOSTest by getting
+        val iosMain by getting
+        val iosTest by getting
     }
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
     }
 }
 
@@ -74,5 +66,4 @@ fatFrameworkCocoaConfig {
         authors = "\"Marco Gomiero\" => \"mg@me.com\""
         gitUrl = "git@github.com:prof18/ccoca-repo-test.git"
     }
-
 }
