@@ -1,8 +1,7 @@
 plugins {
-    kotlin("multiplatform") version "1.4.21"
+    kotlin("multiplatform") version "1.5.10"
     id("com.android.library")
-//    id("com.prof18.kmp.fatframework.cocoa") version "0.0.1-SNAPSHOT"
-    id("com.prof18.kmp.fatframework.cocoa") version "0.0.1"
+    id("com.prof18.kmp.fatframework.cocoa") version "0.0.2-SNAPSHOT"
 }
 
 group = "com.prof18"
@@ -55,15 +54,17 @@ android {
 
 fatFrameworkCocoaConfig {
     fatFrameworkName = "LibraryName"
-    outputPath = "$rootDir/../test-dest"
-    namePrefix = "LibraryName"
-    versionName = "1.2-SNAPSHOT"
+//    outputPath = "$rootDir/../test-dest"
+    outputPath = "$rootDir/../test-dest-xc"
+//    namePrefix = "LibraryName"
+    versionName = "1.2"
 
     cocoaPodRepoInfo {
         summary = "This is a test KMP framework"
         homepage = "https://github.com/prof18/ccoca-repo-test"
         license = "Apache"
         authors = "\"Marco Gomiero\" => \"mg@me.com\""
-        gitUrl = "git@github.com:prof18/ccoca-repo-test.git"
+        gitUrl = "git@github.com:prof18/cocoa-repo-xcframework-test.git"
+        useXCFramework = true
     }
 }
