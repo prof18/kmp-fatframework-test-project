@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.5.10"
     id("com.android.library")
-    id("com.prof18.kmp.fatframework.cocoa") version "0.0.2-SNAPSHOT"
+    id("com.prof18.kmp.fatframework.cocoa") version "0.2.1"
 }
 
 group = "com.prof18"
@@ -17,6 +17,9 @@ repositories {
 kotlin {
     android()
     ios {
+        binaries.framework("LibraryName")
+    }
+    macosX64("macOS") {
         binaries.framework("LibraryName")
     }
     sourceSets {
@@ -40,6 +43,7 @@ kotlin {
         }
         val iosMain by getting
         val iosTest by getting
+
     }
 }
 
@@ -53,11 +57,13 @@ android {
 }
 
 fatFrameworkCocoaConfig {
-    fatFrameworkName = "LibraryName"
+    frameworkName = "LibraryName"
 //    outputPath = "$rootDir/../test-dest"
     outputPath = "$rootDir/../test-dest-xc"
 //    namePrefix = "LibraryName"
-    versionName = "1.2"
+    versionName = "1.3"
+    useXCFramework = true
+
 
     cocoaPodRepoInfo {
         summary = "This is a test KMP framework"
@@ -65,6 +71,5 @@ fatFrameworkCocoaConfig {
         license = "Apache"
         authors = "\"Marco Gomiero\" => \"mg@me.com\""
         gitUrl = "git@github.com:prof18/cocoa-repo-xcframework-test.git"
-        useXCFramework = true
     }
 }
